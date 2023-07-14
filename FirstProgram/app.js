@@ -1,4 +1,7 @@
-const { EventEmitter } = require ('events');//importar bibliotecas
+// require("./sum.js"); // executa logo o codigo deste ficheiro
+const add = require("./sum.js");
+
+const { EventEmitter } = require('events');//importar bibliotecas
 const eventEmitter = new EventEmitter(); // variavel global
 
 function sayHello(name) {
@@ -6,7 +9,7 @@ function sayHello(name) {
     console.log(`Hello, ${name}!`);//criada a função sayHello e imprimir o valor do name
 }
 
-eventEmitter.on('lunch', () =>{
+eventEmitter.on('lunch', () => {
     console.log('Hi\n');
 });
 
@@ -33,3 +36,9 @@ let num2 = "1";
 
 console.log(num1 + num2);//11
 console.log(num1 + 1);//2
+
+const adds = (a, b) => {
+    return a + b;
+};
+
+console.log(add(1, 2));
