@@ -47,6 +47,8 @@ async function load() {
 
                         //fir_img.blur(15);
                         fir_img.print(font, 75, (fir_img.bitmap.height - 200), content);
+                        if (fir_img.bitmap.height > fir_img.bitmap.width)
+                            await fir_img.rotate(-90);
 
                         await new Promise(resolve => setTimeout(resolve, 1500));
                         await fir_img.write(`./FicheirosC/${count++}.JPG`);
