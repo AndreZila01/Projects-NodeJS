@@ -2,7 +2,7 @@ const TextOnGif = require('./text.js');
 
 async function CreateGif(PathGif, Nome) {
     try {
-        (async function () {
+        
             let data = new Date();
             //console.log(v);
             const gif = new TextOnGif({
@@ -17,15 +17,14 @@ async function CreateGif(PathGif, Nome) {
             const buffer = await gif.textOnGif({
                 text: Nome,
                 get_as_buffer: true,
-                write_path: "gif-with-text.gif"
+                write_path: `./src/Images/${Nome}.gif`
             });
 
-            res.setHeader('Content-Type', 'image/gif');
-            res.send(buffer);
-        })();
+            return (new Date() - data) / 1000;
+            
     } catch (error) {
         console.error('Error creating and sending GIF:', error.message);
-        res.status(500).send('Error creating and sending GIF');
+        //res.status(500).send('Error creating and sending GIF');
     }
 }
 
